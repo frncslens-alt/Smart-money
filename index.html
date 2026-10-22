@@ -6,7 +6,8 @@
 
     <title>SMART MONEY</title>
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0b1120">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
     <style>
         * {
@@ -1175,6 +1176,32 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Épargne ajoutée avec succès !");
     };
 });
-</script>    
+</script>  
+<button id="installApp" hidden>
+    📲 Installer SMART MONEY
+</button>
+
+<script>
+let deferredPrompt;
+
+const installButton = document.getElementById("installApp");
+
+window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    deferredPrompt = event;
+    installButton.hidden = false;
+});
+
+installButton.addEventListener("click", async () => {
+    if (!deferredPrompt) return;
+
+    deferredPrompt.prompt();
+
+    await deferredPrompt.userChoice;
+
+    deferredPrompt = null;
+    installButton.hidden = true;
+});
+</script>  
 </body>
 </html>
