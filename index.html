@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SMART MONEY</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0b1120">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1120;
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 7%;
+            border-bottom: 1px solid #263247;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #35e0a1;
+        }
+
+        .language {
+            background: #182338;
+            color: white;
+            padding: 10px;
+            border: 1px solid #34445c;
+            border-radius: 8px;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .welcome {
+            margin-bottom: 30px;
+        }
+
+        .welcome h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .welcome p {
+            color: #9ba9bd;
+        }
+
+        .balance-card {
+            background: linear-gradient(135deg, #126c54, #123e3b);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .balance-card p {
+            color: #d1f5e8;
+        }
+
+        .balance {
+            font-size: 38px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #151f32;
+            border: 1px solid #263247;
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .card h3 {
+            color: #a9b6ca;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .income {
+            color: #35e0a1;
+        }
+
+        .expense {
+            color: #ff7373;
+        }
+
+        .savings {
+            color: #73a7ff;
+        }
+
+        .section-title {
+            margin: 40px 0 20px;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        button {
+            background: #35e0a1;
+            color: #071b16;
+            border: none;
+            border-radius: 10px;
+            padding: 14px 20px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        footer {
+            text-align: center;
+            color: #8290a5;
+            padding: 30px;
+        }
+
+        @media (max-width: 700px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome h1 {
+                font-size: 25px;
+            }
+
+            .balance {
+                font-size: 30px;
+            }
+
+            header {
+                padding: 20px;
+            }
+        }
+                .history {
+            margin-top: 35px;
+        }
+
+        #transaction-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .transaction {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #263247;
+        }
+
+        .transaction:last-child {
+            border-bottom: none;
+        }
+
+        .transaction-name {
+            font-weight: bold;
+        }
+
+        .transaction-date {
+            font-size: 12px;
+            color: #9ba9bd;
+            margin-top: 5px;
+        }
+
+        .transaction-amount {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        /* ===== SMART MONEY - PREMIUM DESIGN ===== */
+
+body {
+    background: #080d19;
+    color: #f1f5f9;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+/* HEADER */
+
+header {
+    background: rgba(11, 17, 32, 0.96);
+    border-bottom: 1px solid rgba(53, 224, 161, 0.18);
+    padding: 22px 7%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #35e0a1;
+}
+
+/* LANGUAGE SELECTOR */
+
+.language {
+    background: #151f32;
+    color: #ffffff;
+    border: 1px solid #34445c;
+    padding: 11px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* MAIN CONTENT */
+
+main {
+    max-width: 1150px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 45px 25px;
+}
+
+/* WELCOME SECTION */
+
+.welcome {
+    margin-bottom: 35px;
+}
+
+.welcome h1 {
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 800;
+    letter-spacing: -0.7px;
+    margin-bottom: 8px;
+}
+
+.welcome p {
+    color: #94a3b8;
+    font-size: 16px;
+}
+
+/* BALANCE CARD */
+
+.balance-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #126c54, #0b302b);
+    border: 1px solid rgba(53, 224, 161, 0.3);
+    border-radius: 24px;
+    padding: 35px;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.balance-card::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    right: -70px;
+    top: -100px;
+    box-shadow:
+        0 0 0 25px rgba(255, 255, 255, 0.025),
+        0 0 0 50px rgba(255, 255, 255, 0.02);
+    pointer-events: none;
+}
+
+.balance-card p {
+    color: #d1fae5;
+    position: relative;
+    z-index: 1;
+}
+
+.balance {
+    font-size: clamp(34px, 5vw, 46px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 15px 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* FINANCIAL CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: linear-gradient(145deg, #151f32, #101827);
+    border: 1px solid #273449;
+    border-radius: 20px;
+    padding: 26px;
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(53, 224, 161, 0.5);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    color: #a9b6ca;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: clamp(21px, 3vw, 27px);
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.income {
+    color: #35e0a1;
+}
+
+.expense {
+    color: #ff7373;
+}
+
+.savings {
+    color: #73a7ff;
+}
+
+/* SECTION TITLES */
+
+.section-title {
+    font-size: 23px;
+    font-weight: 750;
+    margin: 38px 0 20px;
+}
+
+/* ACTION BUTTONS */
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.actions button {
+    flex: 1 1 190px;
+    min-height: 50px;
+    background: #35e0a1;
+    color: #071b16;
+    border: 1px solid #35e0a1;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 14px;
+    font-weight: 750;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.actions button:hover {
+    background: #65f0bd;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(53, 224, 161, 0.15);
+}
+
+.actions button:active {
+    transform: scale(0.98);
+}
+
+/* TRANSACTION HISTORY */
+
+.history {
+    margin-top: 40px;
+}
+
+#transaction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.transaction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 0;
+    border-bottom: 1px solid #273449;
+}
+
+.transaction:last-child {
+    border-bottom: none;
+}
+
+.transaction-name {
+    color: #f1f5f9;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.transaction-date {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.transaction-amount {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #1e293b;
+    color: #8492a6;
+    text-align: center;
+    padding: 28px 20px;
+    margin-top: 30px;
+    font-size: 13px;
+}
+
+/* ACCESSIBILITY */
+
+button:focus-visible,
+select:focus-visible {
+    outline: 2px solid #35e0a1;
+    outline-offset: 4px;
+}
+
+/* MOBILE DESIGN */
+
+@media (max-width: 700px) {
+    header {
+        padding: 18px 20px;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .language {
+        max-width: 145px;
+        padding: 9px;
+    }
+
+    main {
+        padding: 30px 18px;
+    }
+
+    .welcome h1 {
+        font-size: 27px;
+    }
+
+    .balance-card {
+        padding: 26px 22px;
+        border-radius: 20px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .section-title {
+        font-size: 21px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .actions button {
+        width: 100%;
+        flex-basis: auto;
+    }
+
+    .transaction {
+        padding: 16px 0;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+```css
+/* SMART MONEY - Graphique circulaire */
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 10px;
+}
+
+.donut-chart {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #22c55e 0% 0%,
+        #ef4444 0% 0%,
+        #3b82f6 0% 0%,
+        #263244 0% 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.4s ease;
+}
+
+.chart-center {
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    background: #111827;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.chart-center strong {
+    font-size: 30px;
+    color: #22c55e;
+}
+
+.chart-center span {
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+.chart-legend {
+    padding: 10px 20px;
+}
+
+.chart-legend p {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px 0;
+    background: #1e293b;
+    border-radius: 8px;
+    color: white;
+}
+
+.chart-legend strong {
+    color: #22c55e;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">SMART MONEY</div>
+
+        <select class="language" id="language">
+            <option value="fr">Français 🇫🇷</option>
+            <option value="en">English 🇺🇸</option>
+        </select>
+    </header>
+
+    <main>
+        <section class="welcome">
+            <h1>Bienvenue sur SMART MONEY 👋</h1>
+            <p>Gérez votre argent intelligemment.</p>
+        </section>
+
+        <section class="balance-card">
+            <p>Solde total</p>
+            <div class="balance">0,00 $</div>
+            <p>Gardez le contrôle de votre argent.</p>
+        </section>
+
+        <section class="cards">
+            <div class="card">
+                <h3>📈 Revenus</h3>
+                <p class="income">0,00 $</p>
+            </div>
+
+            <div class="card">
+                <h3>💸 Dépenses</h3>
+                <p class="expense">0,00 $</p>
+            </div>
+
+            <div class="card">
+                <h3>🎯 Épargne</h3>
+                <p class="savings">0,00 $</p>
+            </div>
+        </section>
+
+        <h2 class="section-title">Actions rapides</h2>
+
+        <section class="actions">
+            <button>+ Ajouter un revenu</button>
+            <button>- Ajouter une dépense</button>
+            <button>🎯 Objectif d'épargne</button>
+        </section>
+        <section class="history">
+    <h2 class="section-title">📊 Répartition de votre argent</h2>
+
+    <div class="card">
+        <div class="chart-container">
+            <div class="donut-chart" id="donut-chart">
+                <div class="chart-center">
+                    <strong id="chart-percent">0%</strong>
+                    <span>Épargné</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-legend">
+            <p>🟢 Revenus : <strong id="percent-revenus">0%</strong></p>
+            <p>🔴 Dépenses : <strong id="percent-depenses">0%</strong></p>
+            <p>🔵 Épargne : <strong id="percent-epargne">0%</strong></p>
+        </div>
+    </div>
+</section>
+        <section class="history">
+    <h2 class="section-title">📊 Statistiques financières</h2>
+
+<div class="card">
+    <label for="mois-selection">Chwazi mwa a :</label>
+    <input type="month" id="mois-selection">
+</div>
+
+<div class="cards">
+    <div class="card">
+        <h3>📈 Revni mwa a</h3>
+        <p id="revenus-mois">0 HTG</p>
+    </div>
+
+    <div class="card">
+        <h3>📉 Depans mwa a</h3>
+        <p id="depenses-mois">0 HTG</p>
+    </div>
+
+    <div class="card">
+        <h3>💰 Diferans mwa a</h3>
+        <p id="difference-mois">0 HTG</p>
+    </div>
+</div>
+    <div class="cards">
+        <div class="card">
+            <h3>💰 Revenus</h3>
+            <p id="stat-revenus">0 HTG</p>
+        </div>
+
+        <div class="card">
+            <h3>💸 Dépenses</h3>
+            <p id="stat-depenses">0 HTG</p>
+        </div>
+
+        <div class="card">
+            <h3>🏦 Épargne</h3>
+            <p id="stat-epargne">0 HTG</p>
+        </div>
+    </div>
+</section>
+                <section class="history">
+            <h2 class="section-title">Historique des transactions</h2>
+
+            <div class="card">
+                <div id="transaction-list">
+                    <p>Aucune transaction pour le moment.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        SMART MONEY © 2026 — Gérez mieux votre argent.
+    </footer>
+<script>
+    let revenus = Number(localStorage.getItem("revenus")) || 0;
+    let depenses = Number(localStorage.getItem("depenses")) || 0;
+    let epargne = Number(localStorage.getItem("epargne")) || 0;
+let transactions = JSON.parse(
+    localStorage.getItem("transactions") || "[]"
+);
+    let langue = localStorage.getItem("langue") || "fr";
+
+    function sauvegarder() {
+        localStorage.setItem("revenus", revenus);
+        localStorage.setItem("depenses", depenses);
+        localStorage.setItem("epargne", epargne);
+    }
+
+    function actualiser() {
+        document.querySelector(".balance").textContent =
+            (revenus - depenses - epargne).toFixed(2) + " $";
+
+        document.querySelector(".income").textContent =
+            revenus.toFixed(2) + " $";
+
+        document.querySelector(".expense").textContent =
+            depenses.toFixed(2) + " $";
+
+        document.querySelector(".savings").textContent =
+            epargne.toFixed(2) + " $";
+
+        sauvegarder();
+        afficherHistorique();
+        
+    // Mete ajou grafik won an
+    const total = revenus + depenses + epargne;
+
+    const pRevenus = total > 0 ? (revenus / total) * 100 : 0;
+    const pDepenses = total > 0 ? (depenses / total) * 100 : 0;
+    const pEpargne = total > 0 ? (epargne / total) * 100 : 0;
+
+    document.getElementById("percent-revenus").textContent =
+        pRevenus.toFixed(1) + "%";
+
+    document.getElementById("percent-depenses").textContent =
+        pDepenses.toFixed(1) + "%";
+
+    document.getElementById("percent-epargne").textContent =
+        pEpargne.toFixed(1) + "%";
+
+    document.getElementById("chart-percent").textContent =
+        pEpargne.toFixed(1) + "%";
+
+    document.getElementById("donut-chart").style.background =
+        `conic-gradient(
+            #22c55e 0% ${pRevenus}%,
+            #ef4444 ${pRevenus}% ${pRevenus + pDepenses}%,
+            #3b82f6 ${pRevenus + pDepenses}% 100%
+        )`;
+    }
+     actualiserStatistiquesMois();
+function afficherHistorique() {
+    const liste = document.getElementById("transaction-list");
+
+    if (transactions.length === 0) {
+        liste.innerHTML = langue === "fr"
+            ? "<p>Aucune transaction pour le moment.</p>"
+            : "<p>No transactions yet.</p>";
+
+        return;
+    }
+
+    liste.innerHTML = "";
+
+    [...transactions].reverse().forEach(function (transaction) {
+        const ligne = document.createElement("div");
+        ligne.className = "transaction";
+
+        const informations = document.createElement("div");
+
+        const nom = document.createElement("div");
+        nom.className = "transaction-name";
+
+        const date = document.createElement("div");
+        date.className = "transaction-date";
+
+        const montant = document.createElement("div");
+        montant.className = "transaction-amount";
+
+        let signe = "+";
+        let couleur = "#35e0a1";
+
+        if (transaction.type === "expense") {
+            signe = "-";
+            couleur = "#ff7373";
+        }
+
+        if (transaction.type === "savings") {
+            couleur = "#73a7ff";
+        }
+
+        const noms = {
+            income: langue === "fr" ? "Revenu" : "Income",
+            expense: langue === "fr" ? "Dépense" : "Expense",
+            savings: langue === "fr" ? "Épargne" : "Savings"
+        };
+
+        nom.textContent = noms[transaction.type];
+
+        date.textContent = new Date(
+            transaction.date
+        ).toLocaleString(langue === "fr" ? "fr-FR" : "en-US");
+
+        montant.textContent =
+            signe + Number(transaction.amount).toFixed(2) + " $";
+
+        montant.style.color = couleur;
+
+        informations.appendChild(nom);
+        informations.appendChild(date);
+
+        ligne.appendChild(informations);
+        ligne.appendChild(montant);
+
+        liste.appendChild(ligne);
+    });
+}
+    const traductions = {
+        fr: {
+            bienvenue: "Bienvenue sur SMART MONEY 👋",
+            description: "Gérez votre argent intelligemment.",
+            solde: "Solde total",
+            controle: "Gardez le contrôle de votre argent.",
+            revenus: "📈 Revenus",
+            depenses: "💸 Dépenses",
+            epargne: "🎯 Épargne",
+            actions: "Actions rapides",
+            ajouterRevenu: "+ Ajouter un revenu",
+            ajouterDepense: "- Ajouter une dépense",
+            objectif: "🎯 Objectif d'épargne",
+            pied: "SMART MONEY © 2026 — Gérez mieux votre argent."
+        },
+
+        en: {
+            bienvenue: "Welcome to SMART MONEY 👋",
+            description: "Manage your money intelligently.",
+            solde: "Total balance",
+            controle: "Stay in control of your money.",
+            revenus: "📈 Income",
+            depenses: "💸 Expenses",
+            epargne: "🎯 Savings",
+            actions: "Quick actions",
+            ajouterRevenu: "+ Add income",
+            ajouterDepense: "- Add expense",
+            objectif: "🎯 Savings goal",
+            pied: "SMART MONEY © 2026 — Manage your money better."
+        }
+    };
+
+    function changerLangue() {
+        langue = document.getElementById("language").value;
+
+        localStorage.setItem("langue", langue);
+
+        const t = traductions[langue];
+
+        document.querySelector(".welcome h1").textContent = t.bienvenue;
+        document.querySelector(".welcome p").textContent = t.description;
+
+        document.querySelector(".balance-card p").textContent = t.solde;
+
+        document.querySelectorAll(".balance-card p")[1].textContent =
+            t.controle;
+
+        document.querySelectorAll(".card h3")[0].textContent = t.revenus;
+        document.querySelectorAll(".card h3")[1].textContent = t.depenses;
+        document.querySelectorAll(".card h3")[2].textContent = t.epargne;
+
+        document.querySelector(".section-title").textContent = t.actions;
+
+        document.querySelectorAll(".actions button")[0].textContent =
+            t.ajouterRevenu;
+
+        document.querySelectorAll(".actions button")[1].textContent =
+            t.ajouterDepense;
+
+        document.querySelectorAll(".actions button")[2].textContent =
+            t.objectif;
+
+        document.querySelector("footer").textContent = t.pied;
+
+        document.documentElement.lang = langue;
+    }
+
+    document.getElementById("language").addEventListener(
+        "change",
+        changerLangue
+    );
+
+    document.querySelectorAll(".actions button")[0].onclick = function () {
+        const montant = Number(
+            prompt(
+                langue === "fr"
+                    ? "Entrez le montant du revenu :"
+                    : "Enter the income amount:"
+            )
+        );
+
+        if (Number.isFinite(montant) && montant > 0) {
+            revenus += montant;
+
+transactions.push({
+    type: "income",
+    amount: montant,
+    date: new Date().toISOString()
+});
+
+localStorage.setItem("transactions", JSON.stringify(transactions));
+
+actualiser();
+        } else {
+            alert(
+                langue === "fr"
+                    ? "Veuillez entrer un montant valide."
+                    : "Please enter a valid amount."
+            );
+        }
+    };
+
+    document.querySelectorAll(".actions button")[1].onclick = function () {
+        const montant = Number(
+            prompt(
+                langue === "fr"
+                    ? "Entrez le montant de la dépense :"
+                    : "Enter the expense amount:"
+            )
+        );
+
+        if (Number.isFinite(montant) && montant > 0) {
+                    depenses += montant;
+
+transactions.push({
+    type: "expense",
+    amount: montant,
+    date: new Date().toISOString()
+});
+
+localStorage.setItem("transactions", JSON.stringify(transactions));
+
+actualiser();
+
+            alert(
+                langue === "fr"
+                    ? "Veuillez entrer un montant valide."
+                    : "Please enter a valid amount."
+            );
+        }
+    };
+
+    document.querySelectorAll(".actions button")[2].onclick = function () {
+        const montant = Number(
+            prompt(
+                langue === "fr"
+                    ? "Entrez le montant à épargner :"
+                    : "Enter the amount to save:"
+            )
+        );
+
+        if (Number.isFinite(montant) && montant > 0) {
+            if (montant <= revenus - depenses - epargne) {
+              epargne += montant;
+
+transactions.push({
+    type: "savings",
+    amount: montant,
+    date: new Date().toISOString()
+});
+
+localStorage.setItem("transactions", JSON.stringify(transactions));
+
+actualiser();
+            } else {
+                alert(
+                    langue === "fr"
+                        ? "Solde insuffisant."
+                        : "Insufficient balance."
+                );
+            }
+        } else {
+            alert(
+                langue === "fr"
+                    ? "Veuillez entrer un montant valide."
+                    : "Please enter a valid amount."
+            );
+        }
+    };
+
+    document.getElementById("language").value = langue;
+
+    changerLangue();
+    actualiser();
+</script>
+   <script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js")
+            .then(() => {
+                console.log("SMART MONEY est prêt !");
+            })
+            .catch(error => {
+                console.error("Erreur :", error);
+            });
+    });
+}
+
+function actualiserStatistiquesMois() {
+    const selection = document.getElementById("mois-selection");
+    const mois = selection.value;
+
+    let revenusMois = 0;
+    let depensesMois = 0;
+
+    transactions.forEach(function(transaction) {
+        const dat = new Date(transaction.date);
+
+        if (
+            !mois ||
+            dat.getFullYear() + "-" +
+            String(dat.getMonth() + 1).padStart(2, "0") !== mois
+        ) {
+            return;
+        }
+
+        if (transaction.type === "income") {
+            revenusMois += Number(transaction.amount) || 0;
+        } else if (transaction.type === "expense") {
+            depensesMois += Number(transaction.amount) || 0;
+        }
+    });
+
+    document.getElementById("revenus-mois").textContent =
+        revenusMois.toFixed(2) + " HTG";
+
+    document.getElementById("depenses-mois").textContent =
+        depensesMois.toFixed(2) + " HTG";
+
+    document.getElementById("difference-mois").textContent =
+        (revenusMois - depensesMois).toFixed(2) + " HTG";
+}
+
+
+</script>         
+
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const boutons = document.querySelectorAll(".actions button");
+
+    // Bouton Ajouter un revenu
+    boutons[0].onclick = function () {
+        const montant = Number(
+            prompt("Entrez le montant du revenu en HTG :")
+        );
+
+        if (!Number.isFinite(montant) || montant <= 0) {
+            alert("Veuillez entrer un montant valide.");
+            return;
+        }
+
+        revenus += montant;
+
+        transactions.push({
+            type: "income",
+            amount: montant,
+            date: new Date().toISOString()
+        });
+
+        localStorage.setItem(
+            "transactions",
+            JSON.stringify(transactions)
+        );
+
+        localStorage.setItem("revenus", revenus);
+
+        actualiser();
+
+        alert("Revenu ajouté avec succès !");
+    };
+
+    // Bouton Ajouter une dépense
+    boutons[1].onclick = function () {
+        const montant = Number(
+            prompt("Entrez le montant de la dépense en HTG :")
+        );
+
+        if (!Number.isFinite(montant) || montant <= 0) {
+            alert("Veuillez entrer un montant valide.");
+            return;
+        }
+
+        depenses += montant;
+
+        transactions.push({
+            type: "expense",
+            amount: montant,
+            date: new Date().toISOString()
+        });
+
+        localStorage.setItem(
+            "transactions",
+            JSON.stringify(transactions)
+        );
+
+        localStorage.setItem("depenses", depenses);
+
+        actualiser();
+
+        alert("Dépense ajoutée avec succès !");
+    };
+
+    // Bouton Objectif d'épargne
+    boutons[2].onclick = function () {
+        const montant = Number(
+            prompt("Entrez le montant à épargner en HTG :")
+        );
+
+        if (!Number.isFinite(montant) || montant <= 0) {
+            alert("Veuillez entrer un montant valide.");
+            return;
+        }
+
+        if (montant > revenus - depenses - epargne) {
+            alert("Solde insuffisant.");
+            return;
+        }
+
+        epargne += montant;
+
+        transactions.push({
+            type: "savings",
+            amount: montant,
+            date: new Date().toISOString()
+        });
+
+        localStorage.setItem(
+            "transactions",
+            JSON.stringify(transactions)
+        );
+
+        localStorage.setItem("epargne", epargne);
+
+        actualiser();
+
+        alert("Épargne ajoutée avec succès !");
+    };
+});
+</script>    
+</body>
+</html>
